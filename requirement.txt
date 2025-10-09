@@ -1,5 +1,8 @@
 Flask
-requests
+Flask-Cors
 gTTS
-python-dotenv
-gunicorn
+playsound==1.2.2
+pygame
+requests
+
+
