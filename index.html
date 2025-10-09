@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lyra – Your AI Mental Health Companion</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="chat-header">
+      <h1>💠 Lyra</h1>
+      <p>Your calm AI companion</p>
+    </div>
+
+    <div class="mood-selector">
+      <button class="mood-btn" data-mood="sad">😔 Sad</button>
+      <button class="mood-btn" data-mood="stressed">😣 Stressed</button>
+      <button class="mood-btn" data-mood="happy">😊 Happy</button>
+      <button class="mood-btn" data-mood="neutral">🌤️ Neutral</button>
+    </div>
+
+    <div id="chatbox" class="chatbox"></div>
+
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Talk to Lyra..." />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <audio id="voicePlayer" autoplay></audio>
+
+  <script>
+    const chatbox = document.getElementById('chatbox');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const voicePlayer = document.getElementById('voicePlayer');
+    let mood = 'neutral';
+
+    document.querySelectorAll('.mood-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        mood = btn.dataset.mood;
+        document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    async function sendMessage() {
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      chatbox.innerHTML += `<div class="user-msg">${message}</div>`;
+      userInput.value = '';
+      chatbox.scrollTop = chatbox.scrollHeight;
+
+      const formData = new FormData();
+      formData.append('message', message);
+      formData.append('mood', mood);
+
+      const res = await fetch('/chat', { method: 'POST', body: formData });
+      const data = await res.json();
+
+      chatbox.innerHTML += `<div class="bot-msg">${data.response}</div>`;
+      chatbox.scrollTop = chatbox.scrollHeight;
+      voicePlayer.src = '/static/' + data.voice;
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', e => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+</body>
+</html>
