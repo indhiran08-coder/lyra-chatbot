@@ -1,49 +1,43 @@
 from flask import Flask, render_template, request, jsonify
 from gtts import gTTS
-import requests, os, uuid
-from dotenv import load_dotenv
+import os
 
-load_dotenv()
 app = Flask(__name__)
 
-HF_API_KEY = os.getenv("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")
-MODEL = "mistralai/Mistral-7B-Instruct-v0.2"
+# 🧠 Simple mental health chatbot logic
+def get_response(user_input):
+    user_input = user_input.lower()
+    if "sad" in user_input or "depressed" in user_input:
+        return "I’m really sorry you’re feeling this way. Remember, it’s okay to not be okay sometimes. Want me to tell you a relaxing tip?"
+    elif "yes" in user_input:
+        return "Try taking a slow deep breath and think about something you’re grateful for today."
+    elif "stress" in user_input:
+        return "Stress is natural. But you can try the 4-7-8 breathing technique — inhale for 4 seconds, hold for 7, exhale for 8."
+    elif "thank" in user_input:
+        return "You’re most welcome! I’m always here if you need someone to talk to."
+    else:
+        return "I’m Lyra 💬, your AI mental health buddy. How are you feeling today?"
 
-def generate_response(user_input, mood):
-    headers = {"Authorization": f"Bearer {HF_API_KEY}"}
-    prompt = f"""
-    You are Lyra, a friendly and caring mental health companion.
-    Your tone is warm, understanding, and gentle.
-    The user's mood is {mood}.
-    User: {user_input}
-    Lyra:
-    """
-    res = requests.post(
-        f"https://api-inference.huggingface.co/models/{MODEL}",
-        headers=headers,
-        json={"inputs": prompt}
-    )
-    data = res.json()
-    if isinstance(data, list) and len(data) > 0:
-        return data[0]["generated_text"].split("Lyra:")[-1].strip()
-    return "I'm here for you. You can share anything with me."
+# 🎧 Convert text to speech and play it
+def speak_text(text):
+    tts = gTTS(text)
+    tts.save("response.mp3")
+    os.system("start response.mp3")
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+# 🌐 Homepage
+@app.route("/")
+def home():
+    return render_template("index.html")
 
-@app.route('/chat', methods=['POST'])
-def chat():
-    user_message = request.form['message']
-    mood = request.form.get('mood', 'neutral')
-    bot_reply = generate_response(user_message, mood)
+# 💬 Chatbot endpoint
+@app.route("/get", methods=["POST"])
+def chatbot_response():
+    user_msg = request.form["msg"]
+    bot_reply = get_response(user_msg)
+    speak_text(bot_reply)
+    return jsonify({"response": bot_reply})
 
-    # Voice
-    tts = gTTS(bot_reply, lang='en', tld='co.uk')
-    filename = f"voice_{uuid.uuid4()}.mp3"
-    tts.save(os.path.join('static', filename))
-
-    return jsonify({'response': bot_reply, 'voice': filename})
-
-if __name__ == '__main__':
-    app.run(debug=True)
+# 🚀 Main entry point
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Important for Render
+    app.run(host="0.0.0.0", port=port, debug=True)
