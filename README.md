@@ -1,4 +1,4 @@
-# 💫 Lyra — AI Powered Mental Health Chatbot 💬
+# 💫 LYRA — AI Powered Mental Health Chatbot 💬
 
 > “Sometimes, all we need is someone to listen — even if that someone is an AI friend.”
 
