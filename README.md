@@ -1,4 +1,4 @@
-<h1 align="center">🌸✨ LYRA – AI-Powered Mental Health Chatbot ✨🌸</h1>
+<h1 align="center">🌸✨ LYRA – AI-Powered Mental Health Chatbot For Window Application ✨🌸</h1>
 
 <p align="center">
   <em>"Because sometimes, you just need someone who listens."</em> 💬💖  
@@ -38,6 +38,8 @@ Lyra listens, understands emotions, and responds with empathy — helping users 
 | 🧘 **Stress & Emotion Support** | Suggests relaxation ideas and positivity-boosting messages. |
 | ⚡ **Fast & Lightweight** | Built with Flask and simple web technologies for instant response. |
 | 🎨 **Beautiful UI** | Smooth, minimal interface made with HTML, CSS, and JS. |
+| Integrated with Electron JS |
+| displaying with the gitpush on the render on the Windows |
 
 ---
 
