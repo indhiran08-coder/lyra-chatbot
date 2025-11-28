@@ -1,4 +1,4 @@
-<h1 align="center">🌸✨ LYRA – AI-Powered Mental Health Chatbot For Window Application ✨🌸</h1>
+<h1 align="center">🌸✨ LYRA – AI-Powered Mental Health Chatbot for Android ✨🌸</h1>
 
 <p align="center">
   <em>"Because sometimes, you just need someone who listens."</em> 💬💖  
@@ -11,84 +11,66 @@
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Built%20with-Python-blue?logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/Framework-Flask-lightgrey?logo=flask" />
-  <img src="https://img.shields.io/badge/NLP-Spacy%20|%20NLTK-green?logo=ai" />
-  <img src="https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JS-orange" />
-  <img src="https://img.shields.io/badge/Deployed%20on-Render%20|%20Heroku-purple" />
+  <img src="https://img.shields.io/badge/Backend-Flask%20API-blue?logo=flask" />
+  <img src="https://img.shields.io/badge/Android-Kotlin%20%7C%20XML-green?logo=android" />
+  <img src="https://img.shields.io/badge/NLP-Spacy%20%7C%20NLTK%20%7C%20Transformers-purple" />
+  <img src="https://img.shields.io/badge/Hosting-Render-orange" />
+  <img src="https://img.shields.io/badge/Version%20Control-Git%20%7C%20GitHub-black?logo=github" />
 </p>
 
 ---
 
-## 🧠 **Overview**
+## 🧠 Overview
 
-Meet **Lyra**, an intelligent **AI chatbot** designed to **support mental wellness** using the power of **Natural Language Processing (NLP)**.  
-Lyra listens, understands emotions, and responds with empathy — helping users deal with stress, loneliness, and anxiety in a comforting, conversational way.  
+**Lyra** is an AI-powered **mental health chatbot** developed as a **native Android application**.  
+The backend AI logic runs on a Flask API, while the Android app communicates seamlessly with it to provide **empathetic, emotion-aware conversations** for mental wellness support.
 
-💡 *This project was created to blend technology with emotion – AI that cares.*  
+💡 *Lyra brings emotional intelligence to your smartphone — AI that listens, understands, and responds with care.*
 
 ---
 
-## 🌟 **Key Features**
+## 🌟 Key Features
 
 | 🌈 Feature | 💬 Description |
-|------------|----------------|
-| 🧩 **NLP-Powered Understanding** | Lyra uses AI to understand natural language and human emotions. |
-| 💖 **Empathetic Conversations** | Provides comforting and mood-based responses for better mental health. |
-| 🧘 **Stress & Emotion Support** | Suggests relaxation ideas and positivity-boosting messages. |
-| ⚡ **Fast & Lightweight** | Built with Flask and simple web technologies for instant response. |
-| 🎨 **Beautiful UI** | Smooth, minimal interface made with HTML, CSS, and JS. |
-| Integrated with Electron JS |
-| displaying with the gitpush on the render on the Windows |
+|-----------|----------------|
+| 🧠 **AI + NLP Emotional Understanding** | Detects emotional tone using NLP (SpaCy, NLTK, Transformers). |
+| 💖 **Empathetic Chat Responses** | Generates supportive and comforting replies for mental wellness. |
+| 🧘 **Stress & Anxiety Support Tools** | Provides breathing suggestions, positivity messages, and relaxation tips. |
+| 📱 **Native Android App (Kotlin)** | Smooth performance using Kotlin & Material Design UI. |
+| 🌐 **Cloud-Based Flask API** | Fast response and reliable backend hosted on Render. |
+| ⚡ **Lightweight & Optimized** | Minimal API calls and efficient UI for all Android devices. |
+| 🎨 **Calm & Clean User Interface** | Designed with soft colors and simple layout for comfort. |
 
 ---
 
-## 🧰 **Tech Stack**
+## 🧰 Tech Stack
 
 | Category | Technology |
-|-----------|-------------|
-| 🧠 **AI / NLP** | NLTK, SpaCy, Transformers (HuggingFace) |
-| 💻 **Backend** | Python (Flask Framework) |
-| 🎨 **Frontend** | HTML, CSS, JavaScript |
-| ☁️ **Deployment** | Render / Heroku / GitHub Pages |
-| 🔧 **Version Control** | Git & GitHub |
+|----------|------------|
+| 🧠 **AI / NLP** | NLTK, SpaCy, HuggingFace Transformers |
+| 🖥️ **Backend API** | Python, Flask, Render Hosting |
+| 📱 **Mobile Development** | Kotlin, Android Studio, XML |
+| 🎨 **UI Design** | Material Design Components |
+| 🔧 **Tools & Version Control** | Git, GitHub |
 
 ---
 
-## 🗂️ **Project Structure**
+## 🗂️ Project Structure
 
 Lyra-Chatbot/
 │
-├── app.py # Main Flask backend
-├── static/
-│ ├── style.css # Chatbot UI design
-│ └── script.js # Chat functionality
+├── backend/
+│ ├── app.py # Flask backend API
+│ ├── models/ # NLP model scripts
+│ ├── requirements.txt # Dependencies
 │
-├── templates/
-│ └── index.html # Web interface
-│
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
+└── android-app/
+├── app/src/main/
+│ ├── java/... # Kotlin code for Android
+│ ├── res/layout/ # XML layouts
+│ ├── res/drawable/ # Icons & images
+│ ├── AndroidManifest.xml
+└── build.gradle
 
----
+<h3 align="center">🌸 LYRA – Where Technology Meets Empathy 🌸</h3> <p align="center">Made with ❤️ using AI, Android, Flask, and compassion.</p> ```
 
-## ⚙️ **How to Run the Project Locally**
-
-### 🧭 Step 1: Clone the Repository
-```bash
-git clone https://github.com/<your-username>/Lyra-Chatbot.git
-cd Lyra-Chatbot
-💬 Sample Conversations
-🧍‍♀️ User: “I feel anxious lately.”
-🤖 Lyra: “It’s okay to feel that way 🌱. Take a deep breath — you’re doing your best.”
-🧍‍♂️ User: “I’m so happy today!”
-🤖 Lyra: “That’s amazing! Keep smiling, your joy brightens the world ☀️💛.”
-🖼️ Preview
-<p align="center"> <img src="A_digital_graphic_design_banner_displays_the_title.png" alt="Lyra Banner" width="70%"> </p>
-
-🌍 Connect & Contribute
-⭐ Star this repo if you like the project!
-💡 Feel free to contribute via pull requests and suggestions.
-Together, let’s make mental health support smarter and kinder. 💚
-<p align="center"> <a href="https://github.com/<your-username>/Lyra-Chatbot"> <img src="https://img.shields.io/badge/Contributions-Welcome-brightgreen?style=for-the-badge&logo=github" /> </a> </p>
-<h3 align="center">🌸 LYRA – Where Technology Meets Empathy 🌸</h3> <p align="center">Made with ❤️ using AI, Flask, and a lot of care.</p> ```
